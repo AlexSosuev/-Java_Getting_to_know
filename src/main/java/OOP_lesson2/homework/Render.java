@@ -4,10 +4,10 @@ public class Render {
     public void showIndicator(Object object) {
         if (object instanceof Health) {
             System.out.println("Текущее здоровье = " + ((Health) object).getCurrentHealth());
-            String colorHeaith = color(((Health) object).getCurrentHealth()*100/((Health) object).getMaxHealth());
+            String colorHealth = color(((Health) object).getCurrentHealth()*100/((Health) object).getMaxHealth());
             for (int i = 10; i <= ((Health) object).getMaxHealth(); i += 10) {
                 if (i <= ((Health) object).getCurrentHealth()) {
-                    System.out.print(colorHeaith);
+                    System.out.print(colorHealth);
                 } else {
                     System.out.print("\u001B[37mX");
                 }
