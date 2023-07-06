@@ -1,4 +1,4 @@
-package lesson3;
+package OOP_lesson3;
 
 import java.util.Comparator;
 

@@ -49,7 +49,6 @@ public class ConsoleApp {
                     System.err.println("Некорректный индекс");
                     continue;
                 }
-
                 String element = storage.remove(num);
                 if (element != null) {
                     System.out.println(element);
@@ -64,8 +63,6 @@ public class ConsoleApp {
                 storage.add(num, text);
             }
         }
-
         System.out.println("Программа завершена");
     }
-
 }

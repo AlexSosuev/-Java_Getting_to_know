@@ -4,28 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) {
-        Box box1 = new Box(10);
-        Box box2 = new Box(5);
-        Box box3 = new Box(8);
+        Container container = new Container();
+        container.addBox(new Box(15));
+        container.addBox(new Box(25));
+        container.addBox(new Box(3));
+        container.addBox(new Box(5));
 
-        List<Box> boxes = new ArrayList<>();
-        boxes.add(box1);
-        boxes.add(box2);
-        boxes.add(box3);
+        System.out.println("1-й контейнер. " + container);
+        System.out.println("Содержимое контейнера:");
+        container.forEach(System.out::println);
 
-        Container container = new Container(boxes);
+        Container container2 = new Container();
+        container2.addBox(new Box(13));
+        container2.addBox(new Box(17));
+        container2.addBox(new Box(5));
 
-        System.out.println("Общий вес контейнера: " + container.getTotalWeight());
+        System.out.println("\n2-й контейнер. " + container2);
+        System.out.println("Содержимое контейнера:");
+        container2.forEach(System.out::println);
 
-        // Итерирование по ящикам внутри контейнера
-        for (Box box : container) {
-            System.out.println("Вес коробки: " + box.getWeight());
-        }
+        List<Container> containers = new ArrayList<>();
+        containers.add(container);
+        containers.add(container2);
 
-        ContainerCountComparator countComparator = new ContainerCountComparator();
-        int result = countComparator.compare(container1, container2);
-        System.out.println("Comparison result based on box count: " + result);
+        containers.sort(new ContainerCountComparator());
+        System.out.println("\nСортируем контейнеры по количеству ящиков:");
+        containers.forEach(System.out::println);
     }
 }

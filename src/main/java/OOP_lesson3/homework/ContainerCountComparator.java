@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class ContainerCountComparator implements Comparator<Container> {
     @Override
-    public int compare(Container c1, Container c2) {
-        return Integer.compare(c1.size(), c2.size());
+    public int compare(Container o1, Container o2) {
+        return Integer.compare(o1.getSizeContainer(), o2.getSizeContainer());
     }
 }

@@ -43,8 +43,5 @@ public class FilesMain {
 
         // InputStream, OutputStream - bytes
         // Reader, Writer - symbols
-
     }
-
-
 }

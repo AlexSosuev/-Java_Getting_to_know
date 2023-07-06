@@ -1,29 +1,41 @@
 package OOP_lesson3.homework;
 
-import lombok.AllArgsConstructor;
-
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@AllArgsConstructor
-public class Container implements Comparable<Container>, Iterable<Box>{
-    private List<Box> boxes;
+public class Container implements Comparable<Container>, Iterable<Box> {
+    private final List<Box> boxes;
 
-    public double getTotalWeight() {
-        double totalWeight = 0;
-        for (Box box : boxes) {
-            totalWeight += box.getWeight();
-        }
-        return totalWeight;
+    public Container() {
+       this.boxes=new ArrayList<>();
+    }
+
+    public void addBox(Box box) {
+        boxes.add(box);
+    }
+
+    public int getTotalWeight() {
+        return boxes.stream().mapToInt(Box::getWeight).sum();
+    }
+
+    public int getSizeContainer(){
+        return this.boxes.size();
     }
 
     @Override
     public int compareTo(Container other) {
-        return Double.compare(this.getTotalWeight(), other.getTotalWeight());
+        return Integer.compare(this.getTotalWeight(), other.getTotalWeight());
     }
 
     @Override
     public Iterator<Box> iterator() {
         return boxes.iterator();
+    }
+
+    @Override
+    public String toString() {
+        return "Общий вес контейнера: " + getTotalWeight()
+                + " ед., количество ящиков в контейнере - " + getSizeContainer() + " шт.";
     }
 }

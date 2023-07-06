@@ -150,6 +150,4 @@ public class MainClassForLessonFour {
         long end = System.currentTimeMillis();
         return end - start;
     }
-
-
 }
