@@ -3,7 +3,9 @@ package OOP_lesson4.repositories;
 import OOP_lesson4.models.Student;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StudentRepository implements UserRepository<Student> {
 
@@ -27,14 +29,23 @@ public class StudentRepository implements UserRepository<Student> {
     @Override
     public int remove(String fullName) {
         int removeCount = 0;
-        for (Student student : students) {
+
+        Iterator<Student> iterator = students.iterator();
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
             if (student.getFullName().equals(fullName)) {
-                students.remove(student);
-                return 1;
-//                removeCount++;
+                iterator.remove();
+                removeCount++;
             }
         }
         return removeCount;
+    }
+
+    @Override
+    public List<Student> getAllByGroupTitle(String groupTitle) {
+        return students.stream()
+                .filter(student -> student.getGroupTitle().equals(groupTitle))
+                .collect(Collectors.toList());
     }
 
     private Long getMaxId() {
@@ -47,5 +58,3 @@ public class StudentRepository implements UserRepository<Student> {
         return maxId;
     }
 }
-
-

@@ -1,5 +1,6 @@
 package OOP_lesson4.repositories;
 
+import OOP_lesson4.models.Student;
 import OOP_lesson4.models.User;
 
 import java.util.List;
@@ -10,4 +11,6 @@ public interface UserRepository <T extends User> {
     List<T> getAll();
 
     int remove(String fullName);
+
+    List<Student> getAllByGroupTitle(String groupTitle);
 }
