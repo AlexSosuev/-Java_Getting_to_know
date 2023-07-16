@@ -9,7 +9,7 @@ public interface UserService<T extends User>{
     List<T> getAll();
     List<T> getAllSortByFullName();
     List<T> getAllSortById();
+    List<T> getAllSortByAge();
     int remove(String fullName);
-
     List<T> getAllByTitile(String groupTitle);
 }

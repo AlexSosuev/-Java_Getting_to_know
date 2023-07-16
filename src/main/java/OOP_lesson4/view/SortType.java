@@ -3,7 +3,8 @@ package OOP_lesson4.view;
 public enum SortType {
     NONE("Сортировка по умолчанию"),
     NAME("Сортировка по имени"),
-    ID("Сортировка по айди");
+    ID("Сортировка по айди"),
+    AGE("Сортировка по возрасту");
 
     private final String sortName;
 

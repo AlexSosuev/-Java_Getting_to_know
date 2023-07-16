@@ -48,7 +48,12 @@ public class StudentService implements UserService<Student> {
         students.sort(Comparator.comparing(User::getId));
         return students;
     }
-
+    @Override
+    public List<Student> getAllSortByAge() {
+        var students = userRepository.getAll();
+        students.sort(Comparator.comparing(User::getAge));
+        return students;
+    }
 
 
     @Override

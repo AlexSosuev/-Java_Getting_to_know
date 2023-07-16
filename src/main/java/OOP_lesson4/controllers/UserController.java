@@ -10,5 +10,5 @@ public interface UserController <T extends User> {
     int remove(String fullName);
     List<T> getAllSortByFullName();
     List<T> getAllSortById();
-
+    List<T> getAllSortByAge();
 }

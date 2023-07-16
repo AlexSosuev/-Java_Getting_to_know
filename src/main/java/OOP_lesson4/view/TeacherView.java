@@ -1,17 +1,16 @@
 package OOP_lesson4.view;
 
 import OOP_lesson4.controllers.UserController;
-import OOP_lesson4.models.Student;
+import OOP_lesson4.models.Teacher;
 
 import java.util.List;
 
+public class TeacherView implements UserView {
 
-public class StudentView implements UserView {
 
+    private final UserController<Teacher> controller;
 
-    private final UserController<Student> controller;
-
-    public StudentView(UserController<Student> controller) {
+    public TeacherView(UserController<Teacher> controller) {
         this.controller = controller;
     }
 
@@ -21,27 +20,23 @@ public class StudentView implements UserView {
 
     @Override
     public void sendOnConsole(SortType sortType) {
-//        List<Student> students = controller.getAll();
 
-        List<Student> students = switch (sortType) {
+
+        List<Teacher> teachers = switch (sortType) {
             case NONE -> controller.getAll();
             case NAME -> controller.getAllSortByFullName();
             case ID -> controller.getAllSortById();
             case AGE -> controller.getAllSortByAge();
         };
 
-        if (students == null || students.size() == 0) {
-            System.out.println("Отсутствуют студенты для вывода");
+        if (teachers == null || teachers.size() == 0) {
+            System.out.println("Отсутствуют преподаватели для вывода");
             return;
         }
 
         System.out.println("===================================");
         System.out.println("Для вывода использована " + sortType);
-//        for (Student student : students) {
-//            System.out.println(student);
-//        }
-//        students.forEach((student) -> System.out.println(student));
-        students.forEach(System.out::println);
+        teachers.forEach(System.out::println);
         System.out.println("===================================");
     }
 
@@ -57,7 +52,7 @@ public class StudentView implements UserView {
         if (removeCount == 0) {
             System.out.println("Удаление не получилось.");
         } else {
-            System.out.println("Удалено студентов: " + removeCount);
+            System.out.println("Удалено учителей: " + removeCount);
         }
     }
 }
