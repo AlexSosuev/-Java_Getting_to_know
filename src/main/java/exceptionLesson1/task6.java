@@ -29,8 +29,8 @@ public class task6 {
             throw new RuntimeException("Password length must be between 4 and 8");
         }
         System.out.print("Повторите пароль (только цифры): ");
-        String confirnPassword = scanner.nextLine();
-        if (!password.equals(confirnPassword)){
+        String confirmPassword = scanner.nextLine();
+        if (!password.equals(confirmPassword)){
             throw new RuntimeException("Пароли не совпадают");
         }
         return true;
